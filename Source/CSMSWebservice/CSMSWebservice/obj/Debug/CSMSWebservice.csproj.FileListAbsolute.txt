@@ -1,0 +1,11 @@
+c:\users\kin\documents\visual studio 2013\Projects\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.dll.config
+c:\users\kin\documents\visual studio 2013\Projects\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.dll
+c:\users\kin\documents\visual studio 2013\Projects\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.pdb
+c:\users\kin\documents\visual studio 2013\Projects\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.csprojResolveAssemblyReference.cache
+c:\users\kin\documents\visual studio 2013\Projects\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.dll
+c:\users\kin\documents\visual studio 2013\Projects\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.pdb
+E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.dll
+E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.pdb
+E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.dll
+E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.pdb
+E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.csprojResolveAssemblyReference.cache

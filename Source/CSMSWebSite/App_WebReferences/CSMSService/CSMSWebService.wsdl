@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CustomerLoadProduct">
+        <s:complexType />
+      </s:element>
+      <s:element name="CustomerLoadProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerLoadProductResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminViewAccount">
+        <s:complexType />
+      </s:element>
+      <s:element name="AdminViewAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminViewAccountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminAddNewAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="empname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emppassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emprole" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empsex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empbrithdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emphiredate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empaddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empphone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcountry" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="salary" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="hourswork" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mgrid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empstatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminAddNewAccountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AdminUpdateAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="empname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emppassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emprole" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empsex" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empbrithdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emphiredate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empaddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empphone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empcountry" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="salary" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="hourswork" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mgrid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empstatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminUpdateAccountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AdminDeleteAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminDeleteAccountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerViewProducts">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerViewProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManagerViewProductsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerAddProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="categoryid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="importpirce" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitprice" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="productquantity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="productstatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerAddProductResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerUpdateProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="categoryid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="importpirce" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitprice" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="productquantity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="productstatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerUpdateProductResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerDeleteProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerDeleteProductResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerLoadCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerLoadCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManagerLoadCategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerViewCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerViewCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManagerViewCategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerAddCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="categoryid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoryname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="categorydescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerAddCategoriesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerUpdateCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="categoryid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoryname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="categorydescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerUpdateCategoriesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ManagerDeleteCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="categoryid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagerDeleteCategoriesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CustomerAddOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderdate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderadress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="total" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="cusphone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerAddOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CustomerInsertOrderDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitprice" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerInsertOrderDetailResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersionViewOrders">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersionViewOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalespersionViewOrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionViewDeliveringOrders">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersionViewDeliveringOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalespersionViewDeliveringOrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionViewOrderDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionViewOrderDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalespersionViewOrderDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionAcceptOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionAcceptOrdersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersionDenyOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionDenyOrdersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersionConfrimSuccessOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionConfrimSuccessOrdersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersionConfrimFailOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersionConfrimFailOrdersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersonMinusProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="productquantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersonMinusProductResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SalespersonAddProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="productquantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalespersonAddProductResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CustomerLoadProductSoapIn">
+    <wsdl:part name="parameters" element="tns:CustomerLoadProduct" />
+  </wsdl:message>
+  <wsdl:message name="CustomerLoadProductSoapOut">
+    <wsdl:part name="parameters" element="tns:CustomerLoadProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminViewAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminViewAccount" />
+  </wsdl:message>
+  <wsdl:message name="AdminViewAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminViewAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminAddNewAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminAddNewAccount" />
+  </wsdl:message>
+  <wsdl:message name="AdminAddNewAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminAddNewAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminUpdateAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminUpdateAccount" />
+  </wsdl:message>
+  <wsdl:message name="AdminUpdateAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminUpdateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminDeleteAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminDeleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="AdminDeleteAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminDeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerViewProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerViewProducts" />
+  </wsdl:message>
+  <wsdl:message name="ManagerViewProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerViewProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerAddProductSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerAddProduct" />
+  </wsdl:message>
+  <wsdl:message name="ManagerAddProductSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerAddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerUpdateProductSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerUpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="ManagerUpdateProductSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerUpdateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerDeleteProductSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerDeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="ManagerDeleteProductSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerDeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerLoadCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerLoadCategories" />
+  </wsdl:message>
+  <wsdl:message name="ManagerLoadCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerLoadCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerViewCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerViewCategories" />
+  </wsdl:message>
+  <wsdl:message name="ManagerViewCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerViewCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerAddCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerAddCategories" />
+  </wsdl:message>
+  <wsdl:message name="ManagerAddCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerAddCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerUpdateCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerUpdateCategories" />
+  </wsdl:message>
+  <wsdl:message name="ManagerUpdateCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerUpdateCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagerDeleteCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagerDeleteCategories" />
+  </wsdl:message>
+  <wsdl:message name="ManagerDeleteCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagerDeleteCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustomerAddOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CustomerAddOrder" />
+  </wsdl:message>
+  <wsdl:message name="CustomerAddOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CustomerAddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustomerInsertOrderDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:CustomerInsertOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="CustomerInsertOrderDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:CustomerInsertOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionViewOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersionViewOrders" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionViewOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersionViewOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionViewDeliveringOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersionViewDeliveringOrders" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionViewDeliveringOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersionViewDeliveringOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionViewOrderDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersionViewOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionViewOrderDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersionViewOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionAcceptOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersionAcceptOrders" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionAcceptOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersionAcceptOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionDenyOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersionDenyOrders" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionDenyOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersionDenyOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionConfrimSuccessOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersionConfrimSuccessOrders" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionConfrimSuccessOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersionConfrimSuccessOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionConfrimFailOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersionConfrimFailOrders" />
+  </wsdl:message>
+  <wsdl:message name="SalespersionConfrimFailOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersionConfrimFailOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersonMinusProductSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersonMinusProduct" />
+  </wsdl:message>
+  <wsdl:message name="SalespersonMinusProductSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersonMinusProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalespersonAddProductSoapIn">
+    <wsdl:part name="parameters" element="tns:SalespersonAddProduct" />
+  </wsdl:message>
+  <wsdl:message name="SalespersonAddProductSoapOut">
+    <wsdl:part name="parameters" element="tns:SalespersonAddProductResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CSMSWebserviceSoap">
+    <wsdl:operation name="CustomerLoadProduct">
+      <wsdl:input message="tns:CustomerLoadProductSoapIn" />
+      <wsdl:output message="tns:CustomerLoadProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminViewAccount">
+      <wsdl:input message="tns:AdminViewAccountSoapIn" />
+      <wsdl:output message="tns:AdminViewAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminAddNewAccount">
+      <wsdl:input message="tns:AdminAddNewAccountSoapIn" />
+      <wsdl:output message="tns:AdminAddNewAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminUpdateAccount">
+      <wsdl:input message="tns:AdminUpdateAccountSoapIn" />
+      <wsdl:output message="tns:AdminUpdateAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminDeleteAccount">
+      <wsdl:input message="tns:AdminDeleteAccountSoapIn" />
+      <wsdl:output message="tns:AdminDeleteAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerViewProducts">
+      <wsdl:input message="tns:ManagerViewProductsSoapIn" />
+      <wsdl:output message="tns:ManagerViewProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerAddProduct">
+      <wsdl:input message="tns:ManagerAddProductSoapIn" />
+      <wsdl:output message="tns:ManagerAddProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerUpdateProduct">
+      <wsdl:input message="tns:ManagerUpdateProductSoapIn" />
+      <wsdl:output message="tns:ManagerUpdateProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerDeleteProduct">
+      <wsdl:input message="tns:ManagerDeleteProductSoapIn" />
+      <wsdl:output message="tns:ManagerDeleteProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerLoadCategories">
+      <wsdl:input message="tns:ManagerLoadCategoriesSoapIn" />
+      <wsdl:output message="tns:ManagerLoadCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerViewCategories">
+      <wsdl:input message="tns:ManagerViewCategoriesSoapIn" />
+      <wsdl:output message="tns:ManagerViewCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerAddCategories">
+      <wsdl:input message="tns:ManagerAddCategoriesSoapIn" />
+      <wsdl:output message="tns:ManagerAddCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerUpdateCategories">
+      <wsdl:input message="tns:ManagerUpdateCategoriesSoapIn" />
+      <wsdl:output message="tns:ManagerUpdateCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagerDeleteCategories">
+      <wsdl:input message="tns:ManagerDeleteCategoriesSoapIn" />
+      <wsdl:output message="tns:ManagerDeleteCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAddOrder">
+      <wsdl:input message="tns:CustomerAddOrderSoapIn" />
+      <wsdl:output message="tns:CustomerAddOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerInsertOrderDetail">
+      <wsdl:input message="tns:CustomerInsertOrderDetailSoapIn" />
+      <wsdl:output message="tns:CustomerInsertOrderDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewOrders">
+      <wsdl:input message="tns:SalespersionViewOrdersSoapIn" />
+      <wsdl:output message="tns:SalespersionViewOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewDeliveringOrders">
+      <wsdl:input message="tns:SalespersionViewDeliveringOrdersSoapIn" />
+      <wsdl:output message="tns:SalespersionViewDeliveringOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewOrderDetail">
+      <wsdl:input message="tns:SalespersionViewOrderDetailSoapIn" />
+      <wsdl:output message="tns:SalespersionViewOrderDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionAcceptOrders">
+      <wsdl:input message="tns:SalespersionAcceptOrdersSoapIn" />
+      <wsdl:output message="tns:SalespersionAcceptOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionDenyOrders">
+      <wsdl:input message="tns:SalespersionDenyOrdersSoapIn" />
+      <wsdl:output message="tns:SalespersionDenyOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionConfrimSuccessOrders">
+      <wsdl:input message="tns:SalespersionConfrimSuccessOrdersSoapIn" />
+      <wsdl:output message="tns:SalespersionConfrimSuccessOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionConfrimFailOrders">
+      <wsdl:input message="tns:SalespersionConfrimFailOrdersSoapIn" />
+      <wsdl:output message="tns:SalespersionConfrimFailOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersonMinusProduct">
+      <wsdl:input message="tns:SalespersonMinusProductSoapIn" />
+      <wsdl:output message="tns:SalespersonMinusProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalespersonAddProduct">
+      <wsdl:input message="tns:SalespersonAddProductSoapIn" />
+      <wsdl:output message="tns:SalespersonAddProductSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CSMSWebserviceSoap" type="tns:CSMSWebserviceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CustomerLoadProduct">
+      <soap:operation soapAction="http://tempuri.org/CustomerLoadProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminViewAccount">
+      <soap:operation soapAction="http://tempuri.org/AdminViewAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminAddNewAccount">
+      <soap:operation soapAction="http://tempuri.org/AdminAddNewAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminUpdateAccount">
+      <soap:operation soapAction="http://tempuri.org/AdminUpdateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminDeleteAccount">
+      <soap:operation soapAction="http://tempuri.org/AdminDeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerViewProducts">
+      <soap:operation soapAction="http://tempuri.org/ManagerViewProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerAddProduct">
+      <soap:operation soapAction="http://tempuri.org/ManagerAddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerUpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/ManagerUpdateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerDeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/ManagerDeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerLoadCategories">
+      <soap:operation soapAction="http://tempuri.org/ManagerLoadCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerViewCategories">
+      <soap:operation soapAction="http://tempuri.org/ManagerViewCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerAddCategories">
+      <soap:operation soapAction="http://tempuri.org/ManagerAddCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerUpdateCategories">
+      <soap:operation soapAction="http://tempuri.org/ManagerUpdateCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerDeleteCategories">
+      <soap:operation soapAction="http://tempuri.org/ManagerDeleteCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAddOrder">
+      <soap:operation soapAction="http://tempuri.org/CustomerAddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerInsertOrderDetail">
+      <soap:operation soapAction="http://tempuri.org/CustomerInsertOrderDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewOrders">
+      <soap:operation soapAction="http://tempuri.org/SalespersionViewOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewDeliveringOrders">
+      <soap:operation soapAction="http://tempuri.org/SalespersionViewDeliveringOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewOrderDetail">
+      <soap:operation soapAction="http://tempuri.org/SalespersionViewOrderDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionAcceptOrders">
+      <soap:operation soapAction="http://tempuri.org/SalespersionAcceptOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionDenyOrders">
+      <soap:operation soapAction="http://tempuri.org/SalespersionDenyOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionConfrimSuccessOrders">
+      <soap:operation soapAction="http://tempuri.org/SalespersionConfrimSuccessOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionConfrimFailOrders">
+      <soap:operation soapAction="http://tempuri.org/SalespersionConfrimFailOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersonMinusProduct">
+      <soap:operation soapAction="http://tempuri.org/SalespersonMinusProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersonAddProduct">
+      <soap:operation soapAction="http://tempuri.org/SalespersonAddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CSMSWebserviceSoap12" type="tns:CSMSWebserviceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CustomerLoadProduct">
+      <soap12:operation soapAction="http://tempuri.org/CustomerLoadProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminViewAccount">
+      <soap12:operation soapAction="http://tempuri.org/AdminViewAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminAddNewAccount">
+      <soap12:operation soapAction="http://tempuri.org/AdminAddNewAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminUpdateAccount">
+      <soap12:operation soapAction="http://tempuri.org/AdminUpdateAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminDeleteAccount">
+      <soap12:operation soapAction="http://tempuri.org/AdminDeleteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerViewProducts">
+      <soap12:operation soapAction="http://tempuri.org/ManagerViewProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerAddProduct">
+      <soap12:operation soapAction="http://tempuri.org/ManagerAddProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerUpdateProduct">
+      <soap12:operation soapAction="http://tempuri.org/ManagerUpdateProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerDeleteProduct">
+      <soap12:operation soapAction="http://tempuri.org/ManagerDeleteProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerLoadCategories">
+      <soap12:operation soapAction="http://tempuri.org/ManagerLoadCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerViewCategories">
+      <soap12:operation soapAction="http://tempuri.org/ManagerViewCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerAddCategories">
+      <soap12:operation soapAction="http://tempuri.org/ManagerAddCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerUpdateCategories">
+      <soap12:operation soapAction="http://tempuri.org/ManagerUpdateCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagerDeleteCategories">
+      <soap12:operation soapAction="http://tempuri.org/ManagerDeleteCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAddOrder">
+      <soap12:operation soapAction="http://tempuri.org/CustomerAddOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerInsertOrderDetail">
+      <soap12:operation soapAction="http://tempuri.org/CustomerInsertOrderDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewOrders">
+      <soap12:operation soapAction="http://tempuri.org/SalespersionViewOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewDeliveringOrders">
+      <soap12:operation soapAction="http://tempuri.org/SalespersionViewDeliveringOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionViewOrderDetail">
+      <soap12:operation soapAction="http://tempuri.org/SalespersionViewOrderDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionAcceptOrders">
+      <soap12:operation soapAction="http://tempuri.org/SalespersionAcceptOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionDenyOrders">
+      <soap12:operation soapAction="http://tempuri.org/SalespersionDenyOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionConfrimSuccessOrders">
+      <soap12:operation soapAction="http://tempuri.org/SalespersionConfrimSuccessOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersionConfrimFailOrders">
+      <soap12:operation soapAction="http://tempuri.org/SalespersionConfrimFailOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersonMinusProduct">
+      <soap12:operation soapAction="http://tempuri.org/SalespersonMinusProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalespersonAddProduct">
+      <soap12:operation soapAction="http://tempuri.org/SalespersonAddProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CSMSWebservice">
+    <wsdl:port name="CSMSWebserviceSoap" binding="tns:CSMSWebserviceSoap">
+      <soap:address location="http://localhost:62557/CSMSWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CSMSWebserviceSoap12" binding="tns:CSMSWebserviceSoap12">
+      <soap12:address location="http://localhost:62557/CSMSWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
