@@ -26,9 +26,12 @@
     <link href="../styles/introjs.css" rel="stylesheet" />
     <link href="../styles/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
     <link href="../styles/animate.css" rel="stylesheet" />
+    <script src="../Resource/ajaxjs/jquery.min.js"></script>
+    <script src="../Resource/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <!--BEGIN BACK TO TOP-->
             <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
@@ -78,12 +81,12 @@
                     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                         <div class="page-header pull-left">
                             <div class="page-title">
-                                Account</div>
+                                Order</div>
                         </div>
                         <ol class="breadcrumb page-breadcrumb pull-right">
                             <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                            <li class="hidden"><a href="#">Tables</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                            <li class="active">Account</li>
+                            <li class="hidden"><a href="#">Order</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                            <li class="active">Order</li>
                         </ol>
                         <div class="clearfix">
                         </div>
@@ -99,96 +102,97 @@
                                                     <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
                                                     </div>
                                                 </div>
-                                
                                 </div>
                                 <div class="col-lg-12">
                                 <div class="row">
+                        <!-- Update/Delete Modal Dialog -->
+                         <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                            <div class="modal-body">
+                                                <!--Table Order Detail -->
+                                                <div class="col-lg-12">
+                                                    <div class="panel panel-yellow">
+                                                        <div class="panel-heading">Order <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div>
+                                                        <div class="panel-body">                                    
+                                                            <table class="table table-hover">                                       
+                                                                <asp:GridView ID="grvOrderDetail" runat="server" class="table table-bordered"
+                                                                AutoGenerateColumns="false" AllowPaging="true" PageSize="20">
+                                                                    <Columns>
+                                                                        <asp:BoundField DataField = "orderid" HeaderText = "Order ID" HtmlEncode = "true" />
+                                                                        <asp:BoundField DataField = "productid" HeaderText = "Product ID" HtmlEncode = "true" />
+                                                                        <asp:BoundField DataField = "productname" HeaderText = "Product Name" HtmlEncode = "true"/>
+                                                                        <asp:BoundField DataField = "quantity" HeaderText = "Quantity" HtmlEncode = "true"/>
+                                                                        <asp:BoundField DataField = "unitprice" HeaderText = "Price" HtmlEncode = "true"/>
+                                                                    </Columns>
+                                                                </asp:GridView>
+                                                                <strong><asp:Label ID="lblTotalPrice" runat="server" Text=""></asp:Label></strong>
+                                                            </table>                                    
+                                                        </div>
+                                                    </div>                             
+                                                </div>
+                                                <!--End Table Order Detail -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                </script>
+                                                <asp:Label ID="tmpOrderID" runat="server" Text="" Visible="false"></asp:Label>                                        
+                                                <asp:Button ID="btnAccept" runat="server" Text="Accept" OnClick="btnAccept_Click" class="btn btn-success" Visible="true"/>
+                                                <asp:Button ID="btnDeny" runat="server" Text="Deny" OnClick="btnDeny_Click" class="btn btn-danger" Visible="true"/>
+                                                <asp:Button ID="btnSucess" runat="server" Text="Sucess" OnClick="btnSucess_Click" class="btn btn-success" Visible="true"/>
+                                                <asp:Button ID="btnFail" runat="server" Text="Fail" OnClick="btnFail_Click" class="btn btn-danger" Visible="true"/>
+                                                <asp:Button ID="btnClose" runat="server" Text="Close" class="btn btn-info" data-dismiss="modal" aria-hidden="true" />                                                
+                                            </div>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>                           
+                        <!-- End model -->
+                        <!--Table Order Pending -->
                         <div class="col-lg-12">
                             <div class="panel panel-yellow">
                                 <div class="panel-heading">Order</div>
-                                <div class="panel-body">
-                                    <table class="table table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Username</th>
-                                            <th>Age</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Henry</td>
-                                            <td>23</td>
-                                            <td><span class="label label-sm label-success">Approved</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>John</td>
-                                            <td>45</td>
-                                            <td><span class="label label-sm label-info">Pending</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>30</td>
-                                            <td><span class="label label-sm label-warning">Suspended</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Lahm</td>
-                                            <td>15</td>
-                                            <td><span class="label label-sm label-danger">Blocked</span></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="panel-body">                                    
+                                    <table class="table table-hover">                                       
+                                        <asp:GridView ID="grvOrderPending" runat="server" class="table table-bordered"
+                                        AutoGenerateColumns="false" AllowPaging="true" PageSize="20" OnSelectedIndexChanged="grvOrderPending_SelectedIndexChanged">
+                                            <Columns>
+                                                <asp:BoundField DataField = "orderid" HeaderText = "ID" HtmlEncode = "true" />
+                                                <asp:BoundField DataField = "orderdate" HeaderText = "Time" HtmlEncode = "true" />
+                                                <asp:BoundField DataField = "orderadress" HeaderText = "Address" HtmlEncode = "true"/>
+                                                <asp:BoundField DataField = "cusphone" HeaderText = "Phone" HtmlEncode = "true"/>
+                                                <asp:BoundField DataField = "status" HeaderText = "Status" HtmlEncode = "true"/>
+                                                <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" ControlStyle-CssClass="btn-primary"/>
+                                            </Columns>
+                                        </asp:GridView>
+                                    </table>                                    
                                 </div>
                             </div>                             
                         </div>
+                        <!--End Table Order Pending -->
+                        <!--Table Order Delevering -->
                         <div class="col-lg-12">
                         <div class="panel panel-pink">
                             <div class="panel-heading">Delivering</div>
                             <div class="panel-body">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Username</th>
-                                        <th>Age</th>
-                                        <th>Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Henry</td>
-                                        <td>23</td>
-                                        <td><span class="label label-sm label-success">Approved</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>John</td>
-                                        <td>45</td>
-                                        <td><span class="label label-sm label-info">Pending</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>30</td>
-                                        <td><span class="label label-sm label-warning">Suspended</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Lahm</td>
-                                        <td>15</td>
-                                        <td><span class="label label-sm label-danger">Blocked</span></td>
-                                    </tr>
-                                    </tbody>
+                                <table class="table table-hover">                                
+                                    <asp:GridView ID="grvOderDelevering" runat="server" class="table table-bordered"
+                                     AutoGenerateColumns="false" AllowPaging="true" PageSize="20" OnSelectedIndexChanged="grvOderDelevering_SelectedIndexChanged">
+                                         <Columns>
+                                                <asp:BoundField DataField = "orderid" HeaderText = "ID" HtmlEncode = "true" />
+                                                <asp:BoundField DataField = "orderdate" HeaderText = "Time" HtmlEncode = "true" />
+                                                <asp:BoundField DataField = "orderadress" HeaderText = "Address" HtmlEncode = "true"/>
+                                                <asp:BoundField DataField = "cusphone" HeaderText = "Phone" HtmlEncode = "true"/>
+                                                <asp:BoundField DataField = "status" HeaderText = "Status" HtmlEncode = "true"/>
+                                                <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" ControlStyle-CssClass="btn-primary"/>
+                                            </Columns>
+                                    </asp:GridView>
                                 </table>
                             </div>
                         </div>
-                    </div>                  
+                        </div>
+                      <!--End Table Order Delevering -->                  
                         </div>
                     </div>
 						    </div>                            
