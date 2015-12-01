@@ -9,9 +9,3 @@ E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.pdb
 E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.dll
 E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.pdb
 E:\Study\HK5\SR\Project\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.csprojResolveAssemblyReference.cache
-C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.dll.config
-C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.dll
-C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.pdb
-C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.csprojResolveAssemblyReference.cache
-C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.dll
-C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.pdb
