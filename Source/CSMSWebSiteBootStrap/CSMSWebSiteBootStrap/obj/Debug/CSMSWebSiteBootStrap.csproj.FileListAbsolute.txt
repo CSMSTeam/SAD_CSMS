@@ -9,8 +9,3 @@ C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBo
 C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.csprojResolveAssemblyReference.cache
 C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.dll
 C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.pdb
-C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\bin\CSMSWebSiteBootStrap.dll
-C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\bin\CSMSWebSiteBootStrap.pdb
-C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.csprojResolveAssemblyReference.cache
-C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.dll
-C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.pdb
