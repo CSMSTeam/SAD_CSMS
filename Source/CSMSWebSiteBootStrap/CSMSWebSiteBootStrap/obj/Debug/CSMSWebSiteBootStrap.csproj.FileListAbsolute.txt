@@ -3,3 +3,9 @@ C:\Users\Kin\documents\visual studio 2012\Projects\CSMSWebSiteBootStrap\CSMSWebS
 C:\Users\Kin\documents\visual studio 2012\Projects\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.dll
 C:\Users\Kin\documents\visual studio 2012\Projects\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.pdb
 C:\Users\Kin\documents\visual studio 2012\Projects\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.csprojResolveAssemblyReference.cache
+C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\bin\CSMSWebSiteBootStrap.dll.config
+C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\bin\CSMSWebSiteBootStrap.dll
+C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\bin\CSMSWebSiteBootStrap.pdb
+C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.csprojResolveAssemblyReference.cache
+C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.dll
+C:\Users\Tan\Documents\GitHub\SAD_CSMS\Source\CSMSWebSiteBootStrap\CSMSWebSiteBootStrap\obj\Debug\CSMSWebSiteBootStrap.pdb
