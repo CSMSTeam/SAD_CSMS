@@ -784,7 +784,12 @@ namespace CSMSWebservice
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "SalespersionConfrimOrders";
 
-            SqlParameter param = new SqlParameter("@orderid", SqlDbType.NVarChar);
+            SqlParameter param = new SqlParameter("@empid", SqlDbType.Int);
+            param.Size = 15;
+            param.Value = empid;
+            cmd.Parameters.Add(param);
+
+            param = new SqlParameter("@orderid", SqlDbType.NVarChar);
             param.Size = 20;
             param.Value = orderid;
             cmd.Parameters.Add(param);
@@ -792,10 +797,6 @@ namespace CSMSWebservice
             param = new SqlParameter("@status", SqlDbType.NVarChar);
             param.Size = 15;
             param.Value = "Delivering";
-
-            param = new SqlParameter("@empid", SqlDbType.Int);
-            param.Size = 15;
-            param.Value = empid;
             cmd.Parameters.Add(param);
 
             cmd.ExecuteNonQuery();

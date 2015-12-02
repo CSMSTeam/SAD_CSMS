@@ -31,7 +31,7 @@ namespace CSMSWebSiteBootStrap.View
                 Session.Add("USERID", info[0]);
                 Session.Add("USERNAME", info[1]);
                 Session.Add("USERROLE", info[2]);
-                switch(info[1])
+                switch(info[2])
                 {
                     case "Admin":
                         Response.Redirect("MasterView.aspx");

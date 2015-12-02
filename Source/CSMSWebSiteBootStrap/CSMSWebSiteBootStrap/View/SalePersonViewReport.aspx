@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SalePersonViewOder.aspx.cs" Inherits="CSMSWebSiteBootStrap.View.SalePersonViewOder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SalePersonViewReport.aspx.cs" Inherits="CSMSWebSiteBootStrap.View.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -66,11 +66,11 @@
                     
                          <div class="clearfix"></div>                                       
                         </li>
-                        <li class="active"><a href="SalePersonViewOder.aspx"><i class="fa fa-th-list fa-fw">
+                        <li><a href="SalePersonViewOder.aspx"><i class="fa fa-th-list fa-fw">
                             <div class="icon-bg bg-blue"></div>
                         </i><span class="menu-title">Order</span></a>                          
                         </li>                       
-                        <li><a href="SalePersonViewReport.aspx"><i class="fa fa-bar-chart-o fa-fw">
+                        <li class="active"><a href="SalePersonViewReport.aspx"><i class="fa fa-bar-chart-o fa-fw">
                             <div class="icon-bg bg-orange"></div>
                         </i><span class="menu-title">Report</span></a>                       
                     </ul>
@@ -85,8 +85,8 @@
                         </div>
                         <ol class="breadcrumb page-breadcrumb pull-right">
                             <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                            <li class="hidden"><a href="#">Order</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                            <li class="active">Order</li>
+                            <li class="hidden"><a href="#">Report</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                            <li class="active">Report</li>
                         </ol>
                         <div class="clearfix">
                         </div>
@@ -134,13 +134,7 @@
                                                 </div>
                                                 <!--End Table Order Detail -->
                                             </div>
-                                            <div class="modal-footer">
-                                                </script>
-                                                <asp:Label ID="tmpOrderID" runat="server" Text="" Visible="false"></asp:Label>                                        
-                                                <asp:Button ID="btnAccept" runat="server" Text="Accept" OnClick="btnAccept_Click" class="btn btn-success" Visible="true"/>
-                                                <asp:Button ID="btnDeny" runat="server" Text="Deny" OnClick="btnDeny_Click" class="btn btn-danger" Visible="true"/>
-                                                <asp:Button ID="btnSucess" runat="server" Text="Sucess" OnClick="btnSucess_Click" class="btn btn-success" Visible="true"/>
-                                                <asp:Button ID="btnFail" runat="server" Text="Fail" OnClick="btnFail_Click" class="btn btn-danger" Visible="true"/>
+                                            <div class="modal-footer">                                                
                                                 <asp:Button ID="btnClose" runat="server" Text="Close" class="btn btn-info" data-dismiss="modal" aria-hidden="true" />                                                
                                             </div>
                                         </div>
@@ -152,47 +146,26 @@
                         <!--Table Order Pending -->
                         <div class="col-lg-12">
                             <div class="panel panel-yellow">
-                                <div class="panel-heading">Order</div>
+                                <div class="panel-heading">Report</div>
                                 <div class="panel-body">                                    
                                     <table class="table table-hover">                                       
-                                        <asp:GridView ID="grvOrderPending" runat="server" class="table table-bordered"
-                                        AutoGenerateColumns="false" AllowPaging="true" PageSize="20" OnSelectedIndexChanged="grvOrderPending_SelectedIndexChanged">
+                                        <asp:GridView ID="grvOrderReport" runat="server" class="table table-bordered"
+                                        AutoGenerateColumns="false" AllowPaging="true" PageSize="20" OnSelectedIndexChanged="grvOrderReport_SelectedIndexChanged">
                                             <Columns>
                                                 <asp:BoundField DataField = "orderid" HeaderText = "ID" HtmlEncode = "true" />
                                                 <asp:BoundField DataField = "orderdate" HeaderText = "Time" HtmlEncode = "true" />
                                                 <asp:BoundField DataField = "orderadress" HeaderText = "Address" HtmlEncode = "true"/>
                                                 <asp:BoundField DataField = "cusphone" HeaderText = "Phone" HtmlEncode = "true"/>
-                                                <asp:BoundField DataField = "status" HeaderText = "Status" HtmlEncode = "true"/>
+                                                <asp:BoundField DataField = "total" HeaderText = "Status" HtmlEncode = "true"/>
                                                 <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" ControlStyle-CssClass="btn-primary"/>
                                             </Columns>
                                         </asp:GridView>
+                                        <asp:Label ID="lblDayTotal" runat="server" Text="" CssClass="right"></asp:Label>
                                     </table>                                    
                                 </div>
                             </div>                             
                         </div>
-                        <!--End Table Order Pending -->
-                        <!--Table Order Delevering -->
-                        <div class="col-lg-12">
-                        <div class="panel panel-pink">
-                            <div class="panel-heading">Delivering</div>
-                            <div class="panel-body">
-                                <table class="table table-hover">                                
-                                    <asp:GridView ID="grvOderDelevering" runat="server" class="table table-bordered"
-                                     AutoGenerateColumns="false" AllowPaging="true" PageSize="20" OnSelectedIndexChanged="grvOderDelevering_SelectedIndexChanged">
-                                         <Columns>
-                                                <asp:BoundField DataField = "orderid" HeaderText = "ID" HtmlEncode = "true" />
-                                                <asp:BoundField DataField = "orderdate" HeaderText = "Time" HtmlEncode = "true" />
-                                                <asp:BoundField DataField = "orderadress" HeaderText = "Address" HtmlEncode = "true"/>
-                                                <asp:BoundField DataField = "cusphone" HeaderText = "Phone" HtmlEncode = "true"/>
-                                                <asp:BoundField DataField = "status" HeaderText = "Status" HtmlEncode = "true"/>
-                                                <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" ControlStyle-CssClass="btn-primary"/>
-                                            </Columns>
-                                    </asp:GridView>
-                                </table>
-                            </div>
-                        </div>
-                        </div>
-                      <!--End Table Order Delevering -->                  
+                        <!--End Table Order Pending -->                
                         </div>
                     </div>
 						    </div>                            
