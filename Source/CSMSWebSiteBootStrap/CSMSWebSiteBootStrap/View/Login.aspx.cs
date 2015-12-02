@@ -24,12 +24,28 @@ namespace CSMSWebSiteBootStrap.View
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
             CSMSService.CSMSWebservice GuestLogin = new CSMSService.CSMSWebservice();
-            role = GuestLogin.GuestLogin(username, password);
-            if (role != null || !role.Equals(""))
+            string []info =  GuestLogin.GuestLogin(username,password);
+            if (info!=null)
             {
                 Session.Timeout = 60;
-                Session.Add("ROLE", role);
-                Response.Redirect("MasterView.aspx");
+                Session.Add("USERID", info[0]);
+                Session.Add("USERNAME", info[1]);
+                Session.Add("USERROLE", info[2]);
+                switch(info[1])
+                {
+                    case "Admin":
+                        Response.Redirect("MasterView.aspx");
+                        break;
+                    case "Saleperson":
+                        Response.Redirect("SalePersonViewOder.aspx");
+                        break;
+                    case "Manager":
+                        Response.Redirect("ManageProduct.aspx");
+                        break;
+                    default:
+                        Response.Redirect("Login.aspx");
+                        break;
+                }
             }
             else
             {

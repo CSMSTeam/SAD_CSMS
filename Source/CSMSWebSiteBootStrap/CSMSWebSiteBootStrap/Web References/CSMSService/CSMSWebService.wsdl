@@ -95,6 +95,29 @@
       <s:element name="AdminDeleteAccountResponse">
         <s:complexType />
       </s:element>
+      <s:element name="AdminViewReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminViewReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminViewReportResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="ManagerViewProducts">
         <s:complexType />
       </s:element>
@@ -232,7 +255,11 @@
         </s:complexType>
       </s:element>
       <s:element name="CustomerAddOrderResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerAddOrderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="CustomerInsertOrderDetail">
         <s:complexType>
@@ -245,7 +272,11 @@
         </s:complexType>
       </s:element>
       <s:element name="CustomerInsertOrderDetailResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerInsertOrderDetailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="SalespersionViewOrders">
         <s:complexType />
@@ -302,10 +333,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SalePersonViewReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalePersonViewReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalePersonViewReportResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SalespersionAcceptOrders">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -316,6 +371,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -326,6 +382,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -336,6 +393,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empid" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -375,10 +433,15 @@
       <s:element name="GuestLoginResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GuestLoginResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GuestLoginResult" type="tns:ArrayOfString" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CustomerLoadProductSoapIn">
@@ -410,6 +473,12 @@
   </wsdl:message>
   <wsdl:message name="AdminDeleteAccountSoapOut">
     <wsdl:part name="parameters" element="tns:AdminDeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminViewReportSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminViewReport" />
+  </wsdl:message>
+  <wsdl:message name="AdminViewReportSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminViewReportResponse" />
   </wsdl:message>
   <wsdl:message name="ManagerViewProductsSoapIn">
     <wsdl:part name="parameters" element="tns:ManagerViewProducts" />
@@ -495,6 +564,12 @@
   <wsdl:message name="SalespersionViewOrderDetailSoapOut">
     <wsdl:part name="parameters" element="tns:SalespersionViewOrderDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="SalePersonViewReportSoapIn">
+    <wsdl:part name="parameters" element="tns:SalePersonViewReport" />
+  </wsdl:message>
+  <wsdl:message name="SalePersonViewReportSoapOut">
+    <wsdl:part name="parameters" element="tns:SalePersonViewReportResponse" />
+  </wsdl:message>
   <wsdl:message name="SalespersionAcceptOrdersSoapIn">
     <wsdl:part name="parameters" element="tns:SalespersionAcceptOrders" />
   </wsdl:message>
@@ -558,6 +633,10 @@
       <wsdl:input message="tns:AdminDeleteAccountSoapIn" />
       <wsdl:output message="tns:AdminDeleteAccountSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="AdminViewReport">
+      <wsdl:input message="tns:AdminViewReportSoapIn" />
+      <wsdl:output message="tns:AdminViewReportSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="ManagerViewProducts">
       <wsdl:input message="tns:ManagerViewProductsSoapIn" />
       <wsdl:output message="tns:ManagerViewProductsSoapOut" />
@@ -613,6 +692,10 @@
     <wsdl:operation name="SalespersionViewOrderDetail">
       <wsdl:input message="tns:SalespersionViewOrderDetailSoapIn" />
       <wsdl:output message="tns:SalespersionViewOrderDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalePersonViewReport">
+      <wsdl:input message="tns:SalePersonViewReportSoapIn" />
+      <wsdl:output message="tns:SalePersonViewReportSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SalespersionAcceptOrders">
       <wsdl:input message="tns:SalespersionAcceptOrdersSoapIn" />
@@ -683,6 +766,15 @@
     </wsdl:operation>
     <wsdl:operation name="AdminDeleteAccount">
       <soap:operation soapAction="http://tempuri.org/AdminDeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminViewReport">
+      <soap:operation soapAction="http://tempuri.org/AdminViewReport" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -816,6 +908,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SalePersonViewReport">
+      <soap:operation soapAction="http://tempuri.org/SalePersonViewReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SalespersionAcceptOrders">
       <soap:operation soapAction="http://tempuri.org/SalespersionAcceptOrders" style="document" />
       <wsdl:input>
@@ -920,6 +1021,15 @@
     </wsdl:operation>
     <wsdl:operation name="AdminDeleteAccount">
       <soap12:operation soapAction="http://tempuri.org/AdminDeleteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminViewReport">
+      <soap12:operation soapAction="http://tempuri.org/AdminViewReport" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1046,6 +1156,15 @@
     </wsdl:operation>
     <wsdl:operation name="SalespersionViewOrderDetail">
       <soap12:operation soapAction="http://tempuri.org/SalespersionViewOrderDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalePersonViewReport">
+      <soap12:operation soapAction="http://tempuri.org/SalePersonViewReport" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

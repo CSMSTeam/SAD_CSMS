@@ -263,6 +263,54 @@ namespace CSMSWebservice
         }
 
         [WebMethod]
+        public DataTable AdminViewReport(DateTime fromDate, DateTime toDate, string status)
+        {
+            try
+            {
+                conn = new SqlConnection();
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "AdminViewReport";
+
+                SqlParameter param = new SqlParameter("@fromdate", SqlDbType.DateTime);
+                param.Value = fromDate;
+                cmd.Parameters.Add(param);
+
+                param = new SqlParameter("@todate", SqlDbType.DateTime);
+                param.Value = toDate;
+                cmd.Parameters.Add(param);
+
+                param = new SqlParameter("@status", SqlDbType.NChar);
+                param.Size = 15;
+                param.Value = status;
+                cmd.Parameters.Add(param);
+
+                da = new SqlDataAdapter(cmd);
+                cb = new SqlCommandBuilder(da);
+                ds = new DataSet();
+                da.FillSchema(ds, SchemaType.Mapped);
+                da.Fill(ds, "AdminViewReport");
+                dt = ds.Tables["AdminViewReport"];
+            }
+            catch
+            {
+                //Write Log file                
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Cancel();
+                if (conn != null)
+                    conn.Close();
+            }
+            return dt;
+
+        }
+
+        [WebMethod]
         public DataTable ManagerViewProducts() 
         {
             conn = new SqlConnection();
@@ -492,77 +540,112 @@ namespace CSMSWebservice
         }
 
         [WebMethod]
-        public void CustomerAddOrder(string orderid, DateTime orderdate, string orderadress,
+        public bool CustomerAddOrder(string orderid, DateTime orderdate, string orderadress,
                                      float total, string cusphone)
         {
-            conn = new SqlConnection();
-            conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-            conn.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "CustomerAddOrder";
+            bool isSuccess = false;
+            try
+            {
+                conn = new SqlConnection();
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "CustomerAddOrder";
 
-            SqlParameter param = new SqlParameter("@orderid", SqlDbType.NVarChar);
-            param.Size = 20;
-            param.Value = orderid;
-            cmd.Parameters.Add(param);
+                SqlParameter param = new SqlParameter("@orderid", SqlDbType.NVarChar);
+                param.Size = 20;
+                param.Value = orderid;
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@orderdate", SqlDbType.DateTime);
-            param.Value = orderdate;
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@orderdate", SqlDbType.DateTime);
+                param.Value = orderdate;
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@orderadress", SqlDbType.NVarChar);
-            param.Size = 100;
-            param.Value = orderadress;
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@orderadress", SqlDbType.NVarChar);
+                param.Size = 100;
+                param.Value = orderadress;
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@total", SqlDbType.Float);
-            param.Value = total;
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@total", SqlDbType.Float);
+                param.Value = total;
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@status", SqlDbType.NVarChar);
-            param.Size = 15;
-            param.Value = "Pending";
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@status", SqlDbType.NVarChar);
+                param.Size = 15;
+                param.Value = "Pending";
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@cusphone", SqlDbType.NVarChar);
-            param.Size = 13;
-            param.Value = cusphone;
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@cusphone", SqlDbType.NVarChar);
+                param.Size = 13;
+                param.Value = cusphone;
+                cmd.Parameters.Add(param);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
+                isSuccess = true;
+            }
+            catch
+            {
+                isSuccess = false;
+                //WriteLogFile
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Cancel();
+                if (conn != null)
+                    conn.Close();
+            }
+            return isSuccess;
         }
 
         [WebMethod]
-        public void CustomerInsertOrderDetail(string orderid, int productid, float unitprice, int quantity)
+        public bool CustomerInsertOrderDetail(string orderid, int productid, float unitprice, int quantity)
         {
-            conn = new SqlConnection();
-            conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-            conn.Open();
-            cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "CustomerInsertOrderDetail";
+            bool isSuccess = false;
+            try
+            {
+                conn = new SqlConnection();
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "CustomerInsertOrderDetail";
 
-            SqlParameter param = new SqlParameter("@orderid", SqlDbType.NVarChar);
-            param.Size = 20;
-            param.Value = orderid;
-            cmd.Parameters.Add(param);
+                SqlParameter param = new SqlParameter("@orderid", SqlDbType.NVarChar);
+                param.Size = 20;
+                param.Value = orderid;
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@productid", SqlDbType.Int);
-            param.Value = productid;
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@productid", SqlDbType.Int);
+                param.Value = productid;
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@unitprice", SqlDbType.Float);
-            param.Value = unitprice;
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@unitprice", SqlDbType.Float);
+                param.Value = unitprice;
+                cmd.Parameters.Add(param);
 
-            param = new SqlParameter("@quantity", SqlDbType.Int);
-            param.Value = quantity;
-            cmd.Parameters.Add(param);
+                param = new SqlParameter("@quantity", SqlDbType.Int);
+                param.Value = quantity;
+                cmd.Parameters.Add(param);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
+                isSuccess = true;
+            }
+            catch
+            {
+                isSuccess = false;
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Cancel();
+                if (conn != null)
+                    conn.Close();
+            }
+            return isSuccess;            
         }
 
         [WebMethod]
@@ -644,7 +727,54 @@ namespace CSMSWebservice
         }
 
         [WebMethod]
-        public void SalespersionAcceptOrders(string orderid)
+        public DataTable SalePersonViewReport(int empid, DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                conn = new SqlConnection();
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SalePersonViewReport";
+
+                SqlParameter param = new SqlParameter("@empid", SqlDbType.Int);
+                param.Value = empid;
+                cmd.Parameters.Add(param);
+
+                param = new SqlParameter("@fromdate", SqlDbType.DateTime);
+                param.Value = fromDate;
+                cmd.Parameters.Add(param);
+
+                param = new SqlParameter("@todate", SqlDbType.DateTime);
+                param.Value = toDate;
+                cmd.Parameters.Add(param);
+
+                da = new SqlDataAdapter(cmd);
+                cb = new SqlCommandBuilder(da);
+                ds = new DataSet();
+                da.FillSchema(ds, SchemaType.Mapped);
+                da.Fill(ds, "SalePersonViewReport");
+                dt = ds.Tables["SalePersonViewReport"];
+            }
+            catch
+            {
+                //Write Log file                
+            }
+            finally
+            {
+                if (cmd != null)
+                    cmd.Cancel();
+                if (conn != null)
+                    conn.Close();
+            }
+            return dt;
+           
+        }
+
+        [WebMethod]
+        public void SalespersionAcceptOrders(string orderid, int empid)
         {
             conn = new SqlConnection();
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
@@ -662,13 +792,17 @@ namespace CSMSWebservice
             param = new SqlParameter("@status", SqlDbType.NVarChar);
             param.Size = 15;
             param.Value = "Delivering";
+
+            param = new SqlParameter("@empid", SqlDbType.Int);
+            param.Size = 15;
+            param.Value = empid;
             cmd.Parameters.Add(param);
 
             cmd.ExecuteNonQuery();
         }
 
         [WebMethod]
-        public void SalespersionDenyOrders(string orderid)
+        public void SalespersionDenyOrders(string orderid, int empid)
         {
             conn = new SqlConnection();
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
@@ -688,11 +822,16 @@ namespace CSMSWebservice
             param.Value = "Deny";
             cmd.Parameters.Add(param);
 
+            param = new SqlParameter("@empid", SqlDbType.Int);
+            param.Size = 15;
+            param.Value = empid;
+            cmd.Parameters.Add(param);
+
             cmd.ExecuteNonQuery();
         }
 
         [WebMethod]
-        public void SalespersionConfrimSuccessOrders(string orderid)
+        public void SalespersionConfrimSuccessOrders(string orderid, int empid)
         {
             conn = new SqlConnection();
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
@@ -712,11 +851,16 @@ namespace CSMSWebservice
             param.Value = "Success";
             cmd.Parameters.Add(param);
 
+            param = new SqlParameter("@empid", SqlDbType.Int);
+            param.Size = 15;
+            param.Value = empid;
+            cmd.Parameters.Add(param);
+
             cmd.ExecuteNonQuery();
         }
 
         [WebMethod]
-        public void SalespersionConfrimFailOrders(string orderid)
+        public void SalespersionConfrimFailOrders(string orderid, int empid)
         {
             conn = new SqlConnection();
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
@@ -734,6 +878,11 @@ namespace CSMSWebservice
             param = new SqlParameter("@status", SqlDbType.NVarChar);
             param.Size = 15;
             param.Value = "Fail";
+            cmd.Parameters.Add(param);
+
+            param = new SqlParameter("@empid", SqlDbType.Int);
+            param.Size = 15;
+            param.Value = empid;
             cmd.Parameters.Add(param);
 
             cmd.ExecuteNonQuery();
@@ -786,7 +935,7 @@ namespace CSMSWebservice
         }
 
         [WebMethod]
-        public string GuestLogin(string username, string password)
+        public List<string> GuestLogin(string username, string password)
         {
             // After salesperson confrim order fail - product will be add
             conn = new SqlConnection();
@@ -805,7 +954,21 @@ namespace CSMSWebservice
             param.Value = password;
             cmd.Parameters.Add(param);
 
-            return (string)cmd.ExecuteScalar();
+            da = new SqlDataAdapter(cmd);
+            cb = new SqlCommandBuilder(da);
+            ds = new DataSet();
+            da.FillSchema(ds, SchemaType.Mapped);
+            da.Fill(ds, "GuestLogin");
+            dt = ds.Tables["GuestLogin"];
+            List<string> info = null;
+            if (dt.Rows.Count > 0)
+            {
+                info = new List<string>();
+                info.Add(dt.Rows[0][0].ToString());
+                info.Add(dt.Rows[0][1].ToString());
+                info.Add(dt.Rows[0][2].ToString());
+            }
+            return info;
         }
     }
 }
