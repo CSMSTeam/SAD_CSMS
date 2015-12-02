@@ -335,7 +335,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
-    <Content Include="View\WebForm1.aspx" />
+    <Content Include="View\SalePersonViewReport.aspx" />
     <Content Include="Web References\CSMSService\CSMSWebService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -347,12 +347,11 @@
     <Compile Include="View\MasterView.aspx.designer.cs">
       <DependentUpon>MasterView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="View\SalePersonViewReport.aspx.cs">
+      <DependentUpon>SalePersonViewReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="View\SalePersonViewReport.aspx.designer.cs">
+      <DependentUpon>SalePersonViewReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\CSMSService\Reference.cs">
       <AutoGen>True</AutoGen>
