@@ -70,13 +70,13 @@
 
                             <div class="clearfix"></div>
                             </li>
-                        <li class="active"><a href="ManageCategory.aspx"><i class="fa fa-th-list fa-fw">
+                        <li class="active"><a href="ManageProduct.aspx"><i class="fa fa-th-list fa-fw">
                             <div class="icon-bg bg-blue"></div>
-                        </i><span class="menu-title">Category</span></a>
+                        </i><span class="menu-title">Product</span></a>
                         </li>
-                            <li><a href="ManageProduct.aspx"><i class="fa fa-bar-chart-o fa-fw">
+                            <li><a href="ManageCategory.aspx"><i class="fa fa-bar-chart-o fa-fw">
                                 <div class="icon-bg bg-orange"></div>
-                            </i><span class="menu-title">Product</span></a>
+                            </i><span class="menu-title">Category</span></a>
                                 <li><a href="Tables.html"><i class="fa fa-bar-chart-o fa-fw">
                                     <div class="icon-bg bg-orange"></div>
                                 </i><span class="menu-title">Report</span></a>
@@ -133,7 +133,7 @@
                                                                                 <asp:Label ID="lblProductID" runat="server" Text="ID:" CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductID" runat="server" ReadOnly="true" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtProductID" runat="server" ReadOnly="true" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -141,7 +141,7 @@
                                                                                 <asp:Label ID="lblProductName" runat="server" Text="Name: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductName" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtProductName" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -149,15 +149,15 @@
                                                                                 <asp:Label ID="lblCategoryID" runat="server" Text="Category: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtCategoryID" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtCategoryID" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblImportPrice" runat="server" Text="Import Price: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblImportPrice" runat="server" style="margin-right: 5px" Text="Import Price: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtImportPrice" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtImportPrice" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -165,7 +165,7 @@
                                                                                 <asp:Label ID="lblUnitPrice" runat="server" Text="Unit Price: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtUnitPrice" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitPrice" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -173,7 +173,7 @@
                                                                                 <asp:Label ID="lblProductQuantity" runat="server" Text="Quantity: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductQuantity" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtProductQuantity" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -182,7 +182,7 @@
                                                                             </td>
                                                                             <td>
                                                                                 <%--<asp:TextBox ID="txtProductStatus" runat="server" TextMode="MultiLine" CssClass="form form-control"></asp:TextBox>--%>
-                                                                                <asp:RadioButtonList ID="rbtStatus" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                                <asp:RadioButtonList ID="rbtStatus" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
                                                                                     <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
                                                                                     <asp:ListItem Text="Not Available" Value="Not Available"></asp:ListItem>
                                                                                 </asp:RadioButtonList>
@@ -222,7 +222,7 @@
                                                                                 <asp:Label ID="lblProductName_" runat="server" Text="Name: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductName_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtProductName_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -230,16 +230,15 @@
                                                                                 <asp:Label ID="lblCategoryID_" runat="server" Text="Category: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtCategoryID_" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                                                                <asp:DropDownList ID="DropDownList1" runat="server" style="margin-top: 5px; margin-bottom: 5px"></asp:DropDownList>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblImportPrice_" runat="server" Text="Import Price: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblImportPrice_" runat="server" style="margin-right:5px" Text="Import Price: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtImportPrice_" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtImportPrice_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -247,7 +246,7 @@
                                                                                 <asp:Label ID="lblUnitPrice_" runat="server" Text="Unit Price: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtUnitPrice_" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtUnitPrice_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -255,7 +254,7 @@
                                                                                 <asp:Label ID="lblProductQuantity_" runat="server" Text="Quantity: " CssClass="form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductQuantity_" runat="server" TextMode="MultiLine" CssClass="form form-control" ValidationGroup=""></asp:TextBox>
+                                                                                <asp:TextBox ID="txtProductQuantity_" runat="server" CssClass="form form-control" ValidationGroup="" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -265,7 +264,7 @@
                                                                             <td>
                                                                                 <%--<asp:DropDownList ID="DropDown_" runat="server" CssClass="dropdown-submenu"></asp:DropDownList>--%>
                                                                                 <%--<asp:TextBox ID="txtProductStatus_" runat="server" TextMode="MultiLine" CssClass="form form-control"></asp:TextBox>--%>
-                                                                                <asp:RadioButtonList ID="rbtStatus_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table">
+                                                                                <asp:RadioButtonList ID="rbtStatus_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
                                                                                     <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
                                                                                     <asp:ListItem Text="Not Available" Value="Not Available"></asp:ListItem>
                                                                                 </asp:RadioButtonList>
