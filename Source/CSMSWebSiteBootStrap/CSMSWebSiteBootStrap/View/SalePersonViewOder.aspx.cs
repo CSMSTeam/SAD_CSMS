@@ -10,8 +10,16 @@ namespace CSMSWebSiteBootStrap.View
     public partial class SalePersonViewOder : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            LoadOrders();
+        {
+            string role = (string)Session["USERROLE"];
+            if (role != null && (role.Equals("Admin") || role.Equals("Saleperson")))
+            {
+                LoadOrders();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         public void LoadOrders()
@@ -22,12 +30,14 @@ namespace CSMSWebSiteBootStrap.View
 
             grvOderDelevering.DataSource = CSMSService.SalespersionViewDeliveringOrders();
             grvOderDelevering.DataBind();
+            lblUsername.Text = (string)Session["USERNAME"];
         }
 
         protected void grvOrderPending_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow r = grvOrderPending.SelectedRow;
             string orderid = Server.HtmlDecode(r.Cells[0].Text);
+            lblOderID.Text = orderid;
             CSMSService.CSMSWebservice CSMSService = new CSMSService.CSMSWebservice();
             grvOrderDetail.DataSource = CSMSService.SalespersionViewOrderDetail(orderid);
             grvOrderDetail.DataBind();
@@ -56,6 +66,7 @@ namespace CSMSWebSiteBootStrap.View
         {
             GridViewRow r = grvOderDelevering.SelectedRow;
             string orderid = Server.HtmlDecode(r.Cells[0].Text);
+            lblOderID.Text = orderid;
             CSMSService.CSMSWebservice CSMSService = new CSMSService.CSMSWebservice();
             grvOrderDetail.DataSource = CSMSService.SalespersionViewOrderDetail(orderid);
             grvOrderDetail.DataBind();
@@ -84,7 +95,7 @@ namespace CSMSWebSiteBootStrap.View
         protected void btnAccept_Click(object sender, EventArgs e)
         {
             CSMSService.CSMSWebservice CSMSService = new CSMSService.CSMSWebservice();
-            string orderid = grvOrderDetail.Rows[0].Cells[0].Text;
+            string orderid = lblOderID.Text;
             string s_empid = (string)Session["USERID"];
             int i_emid;
             if(s_empid!=null)
@@ -117,7 +128,7 @@ namespace CSMSWebSiteBootStrap.View
         protected void btnDeny_Click(object sender, EventArgs e)
         {
             CSMSService.CSMSWebservice CSMSService = new CSMSService.CSMSWebservice();
-            string orderid = grvOrderDetail.Rows[0].Cells[0].Text;
+            string orderid = lblOderID.Text;
             string s_empid = (string)Session["USERID"];
             int i_emid;
             if (s_empid != null)
@@ -125,7 +136,7 @@ namespace CSMSWebSiteBootStrap.View
                 if (!s_empid.Equals(""))
                 {
                     i_emid = int.Parse(s_empid);
-                    CSMSService.SalespersionDenyOrders(grvOrderDetail.Rows[0].Cells[0].Text,i_emid);
+                    CSMSService.SalespersionDenyOrders(orderid, i_emid);
                     grvOrderDetail.DataSource = null;
                     grvOrderDetail.DataBind();
                     lblTotalPrice.Text = null;
@@ -145,7 +156,7 @@ namespace CSMSWebSiteBootStrap.View
         protected void btnSucess_Click(object sender, EventArgs e)
         {
             CSMSService.CSMSWebservice CSMSService = new CSMSService.CSMSWebservice();
-            string orderid = grvOrderDetail.Rows[0].Cells[0].Text;
+            string orderid = lblOderID.Text;
             string s_empid = (string)Session["USERID"];
             int i_emid;
             if (s_empid != null)
@@ -153,7 +164,7 @@ namespace CSMSWebSiteBootStrap.View
                 if (!s_empid.Equals(""))
                 {
                     i_emid = int.Parse(s_empid);
-                    CSMSService.SalespersionConfrimSuccessOrders(grvOrderDetail.Rows[0].Cells[0].Text,i_emid);
+                    CSMSService.SalespersionConfrimSuccessOrders(orderid, i_emid);
                     LoadOrders();
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
@@ -167,7 +178,7 @@ namespace CSMSWebSiteBootStrap.View
 
         protected void btnFail_Click(object sender, EventArgs e)
         {
-            string orderid = grvOrderDetail.Rows[0].Cells[0].Text;
+            string orderid = lblOderID.Text;
             string s_empid = (string)Session["USERID"];
             int i_emid;
             if (s_empid != null)

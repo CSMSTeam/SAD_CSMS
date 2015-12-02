@@ -50,7 +50,7 @@
                         </ul>
                     </div>
                     <ul class="nav navbar navbar-top-links navbar-right mbn">                   
-                        <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs">Robert John</span>&nbsp;<span class="caret"></span></a>                       
+                        <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs"><asp:Label ID="lblUsername" runat="server" Text=""></asp:Label></span>&nbsp;<span class="caret"></span></a>                       
                         </li>                    
                     </ul>
                 </div>
@@ -175,8 +175,6 @@
                     <!--END CONTENT-->
                     <!--BEGIN FOOTER-->
                     <div id="footer">
-                        <div class="copyright">
-                            <a href="http://themifycloud.com">2014 © KAdmin Responsive Multi-Purpose Template</a></div>
                     </div>
                     <!--END FOOTER-->
                 </div>

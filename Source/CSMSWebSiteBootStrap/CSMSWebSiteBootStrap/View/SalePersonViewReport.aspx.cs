@@ -11,7 +11,15 @@ namespace CSMSWebSiteBootStrap.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadReport();
+            string role = (string)Session["USERROLE"];
+            if (role != null && (role.Equals("Admin") || role.Equals("Saleperson")))
+            {
+                loadReport();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         public void loadReport()
@@ -33,6 +41,7 @@ namespace CSMSWebSiteBootStrap.View
                         total += float.Parse(grvOrderReport.Rows[i].Cells[4].Text);
                     }
                     lblDayTotal.Text = " Total: " + total.ToString();
+                    lblUsername.Text = (string)Session["USERNAME"];
                 }
             }
         }
