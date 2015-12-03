@@ -15,6 +15,8 @@ namespace CSMSWebSiteBootStrap.View
             if (role != null && (role.Equals("Admin") || role.Equals("Saleperson")))
             {
                 LoadOrders();
+                lblUsername.Text = (string)Session["USERNAME"];
+
             }
             else
             {
@@ -203,6 +205,12 @@ namespace CSMSWebSiteBootStrap.View
                     Response.Redirect(Request.RawUrl);
                 }
             }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }

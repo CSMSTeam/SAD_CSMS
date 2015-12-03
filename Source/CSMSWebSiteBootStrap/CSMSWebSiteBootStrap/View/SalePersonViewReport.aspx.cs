@@ -67,5 +67,11 @@ namespace CSMSWebSiteBootStrap.View
             sb.Append(@"</script>");
             ScriptManager.RegisterStartupScript(this, this.GetType(), "DetailModalScript", sb.ToString(), false);
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

@@ -11,7 +11,16 @@ namespace CSMSWebSiteBootStrap.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadAccounts();
+            string role = (string)Session["USERROLE"];
+            if (role != null && (role.Equals("Admin")))
+            {
+                LoadAccounts();
+                lblUsername.Text = (string)Session["USERNAME"];
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         public void LoadAccounts()
@@ -181,6 +190,12 @@ namespace CSMSWebSiteBootStrap.View
             sb.Append("$('#myModal1').modal('show');");
             sb.Append(@"</script>");
             ScriptManager.RegisterStartupScript(this, this.GetType(), "DetailModalScript", sb.ToString(), false);
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }

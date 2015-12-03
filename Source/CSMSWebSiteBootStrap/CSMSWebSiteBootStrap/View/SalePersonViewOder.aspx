@@ -28,6 +28,7 @@
     <link href="../styles/animate.css" rel="stylesheet" />
     <script src="../Resource/ajaxjs/jquery.min.js"></script>
     <script src="../Resource/js/bootstrap.min.js"></script>
+    <link href="../styles/private.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -39,23 +40,33 @@
             <!--BEGIN TOPBAR-->
             <div id="header-topbar-option-demo" class="page-header-topbar">
                 <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
-                <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">CocShop</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
-                <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
-                <div class="news-update-box hidden-xs"><span class="text-uppercase mrm pull-left text-white">News:</span>
-                        <ul id="news-update" class="ticker list-unstyled">
-                            <li>Welcome to CocShop Management</li>
-                            <li>CocShop Management</li>
+                    <div class="navbar-header">
+                        <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">CocShop</span><span style="display: none" class="logo-text-icon">µ</span></a>
+                    </div>
+                    <div class="topbar-main">
+                        <a id="menu-toggle" href="#" class="hidden-xs" style="padding: 13px 20px 10px"><i class="fa fa-bars"></i></a>
+                        <label class="pr-welcome">
+                            Welcome to CocShop Management
+                        </label>
+                        <ul class="nav navbar navbar-top-links navbar-right mbn">
+                            <li class="dropdown topbar-user">
+                                <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                                    <img src="../Resource/image/me.jpg" alt="" class="img-responsive img-circle" />
+                                    <span class="hidden-xs">
+                                        <asp:Label Style="vertical-align: middle" ID="lblUsername" runat="server" Text=""></asp:Label>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a style="padding: 0px" href="#">
+                                    <asp:Button runat="server" CssClass="pr-btn-logout" Text="Log Out" ID="btnLogout" OnClick="btnLogout_Click" />
+                                    <i style="margin: 0 0 0 -10px; vertical-align: middle;" class="fa fa-sign-out"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
-                    <ul class="nav navbar navbar-top-links navbar-right mbn">                   
-                        <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs"><asp:Label ID="lblUsername" runat="server" Text=""></asp:Label></span>&nbsp;<span class="caret"></span></a>                       
-                        </li>
-                        <li><a href="Login.aspx"><i class="fa fa-key"></i>Log Out</a></li>                                               
-                    </ul>
-                </div>
-            </nav>
+                </nav>
             </div>
             <!--END TOPBAR-->
             <div id="wrapper">
@@ -79,7 +90,7 @@
             </nav>            
                 <div id="page-wrapper">
                     <!--BEGIN TITLE & BREADCRUMB PAGE-->
-                    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                    <div id="title-breadcrumb-option-demo" class="pr-title-content page-title-breadcrumb">
                         <div class="page-header pull-left">
                             <div class="page-title">
                                 Order</div>

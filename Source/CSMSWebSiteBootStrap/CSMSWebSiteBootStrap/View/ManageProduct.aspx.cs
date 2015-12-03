@@ -16,11 +16,12 @@ namespace CSMSWebSiteBootStrap.View
             if (role != null && (role.Equals("Admin") || role.Equals("Manager")))
             {
                 LoadProducts();
+                lblUsername.Text = (string)Session["USERNAME"];
             }
             else
             {
                 Response.Redirect("Login.aspx");
-            } 
+            }
         }
         public void LoadProducts()
         {
@@ -150,6 +151,12 @@ namespace CSMSWebSiteBootStrap.View
             sb.Append(@"</script>");
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "EditHideModalScript", sb.ToString(), false);
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         } 
     }
 }

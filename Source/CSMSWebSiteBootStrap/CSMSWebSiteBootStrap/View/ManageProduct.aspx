@@ -26,6 +26,7 @@
     <link href="../styles/introjs.css" rel="stylesheet" />
     <link href="../styles/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
     <link href="../styles/animate.css" rel="stylesheet" />
+    <link href="../styles/private.css" rel="stylesheet" />
     <script src="../Resource/ajaxjs/jquery.min.js"></script>
     <script src="../Resource/js/bootstrap.min.js"></script>
 </head>
@@ -44,19 +45,25 @@
                         <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">CocShop</span><span style="display: none" class="logo-text-icon">µ</span></a>
                     </div>
                     <div class="topbar-main">
-                        <a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
-                        <div class="news-update-box hidden-xs">
-                            <span class="text-uppercase mrm pull-left text-white">News:</span>
-                            <ul id="news-update" class="ticker list-unstyled">
-                                <li>Welcome to CocShop Management</li>
-                                <li>CocShop Management</li>
-                            </ul>
-                        </div>
+                        <a id="menu-toggle" href="#" class="hidden-xs" style="padding: 13px 20px 10px"><i class="fa fa-bars"></i></a>
+                        <label class="pr-welcome">
+                            Welcome to CocShop Management
+                        </label>
                         <ul class="nav navbar navbar-top-links navbar-right mbn">
-                            <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle">
-                                <img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle" />&nbsp;<span class="hidden-xs"><asp:Label ID="lblUsername" runat="server" Text=""></asp:Label></span>&nbsp;<span class="caret"></span></a>
+                            <li class="dropdown topbar-user">
+                                <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                                    <img src="../Resource/image/me.jpg" alt="" class="img-responsive img-circle" />
+                                    <span class="hidden-xs">
+                                        <asp:Label Style="vertical-align: middle" ID="lblUsername" runat="server" Text=""></asp:Label>
+                                    </span>
+                                </a>
                             </li>
-                            <li><a href="Login.aspx"><i class="fa fa-key"></i>Log Out</a></li>
+                            <li>
+                                <a style="padding: 0px" href="#">
+                                    <asp:Button runat="server" CssClass="pr-btn-logout" Text="Log Out" ID="btnLogout" OnClick="btnLogout_Click" />
+                                    <i style="margin: 0 0 0 -10px; vertical-align: middle;" class="fa fa-sign-out"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -86,7 +93,7 @@
                 </nav>
                 <div id="page-wrapper">
                     <!--BEGIN TITLE & BREADCRUMB PAGE-->
-                    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                    <div id="title-breadcrumb-option-demo" class="pr-title-content page-title-breadcrumb">
                         <div class="page-header pull-left">
                             <div class="page-title">
                                 Product
@@ -131,59 +138,58 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblProductID" runat="server" Text="ID:" CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblProductID" runat="server" Text="ID:" CssClass="pr-dialog-label form-control-static"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductID" runat="server" ReadOnly="true" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblProductName" runat="server" Text="Name: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtProductName" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtProductID" runat="server" ReadOnly="true" CssClass="pr-dialog-textbox form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblCategoryID" runat="server" Text="Category: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblProductName" runat="server" Text="Name: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtCategoryID" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblImportPrice" runat="server" style="margin-right: 5px" Text="Import Price: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtImportPrice" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtProductName" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblUnitPrice" runat="server" Text="Unit Price: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblCategoryID" runat="server" Text="Category: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtUnitPrice" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblProductQuantity" runat="server" Text="Quantity: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtProductQuantity" runat="server" style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtCategoryID" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblProductStatus" runat="server" Text="Status: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblImportPrice" runat="server" Text="Import Price: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <%--<asp:TextBox ID="txtProductStatus" runat="server" TextMode="MultiLine" CssClass="form form-control"></asp:TextBox>--%>
-                                                                                <asp:RadioButtonList ID="rbtStatus" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
+                                                                                <asp:TextBox ID="txtImportPrice" runat="server" style="" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblUnitPrice" runat="server" Text="Unit Price: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox ID="txtUnitPrice" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblProductQuantity" runat="server" Text="Quantity: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox ID="txtProductQuantity" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblProductStatus" runat="server" Text="Status: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:RadioButtonList ID="rbtStatus" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters pr-dialog-textbox">
                                                                                     <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
                                                                                     <asp:ListItem Text="Not Available" Value="Not Available"></asp:ListItem>
                                                                                 </asp:RadioButtonList>
@@ -220,52 +226,50 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblProductName_" runat="server" Text="Name: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblProductName_" runat="server" Text="Name: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductName_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblCategoryID_" runat="server" Text="Category: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:DropDownList ID="DropDownList1" runat="server" style="margin-top: 5px; margin-bottom: 5px"></asp:DropDownList>
+                                                                                <asp:TextBox ID="txtProductName_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblImportPrice_" runat="server" style="margin-right:5px" Text="Import Price: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblCategoryID_" runat="server" Text="Category: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtImportPrice_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblUnitPrice_" runat="server" Text="Unit Price: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtUnitPrice_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
+                                                                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="pr-dialog-textbox"></asp:DropDownList>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblProductQuantity_" runat="server" Text="Quantity: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblImportPrice_" runat="server" Text="Import Price: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtProductQuantity_" runat="server" CssClass="form form-control" ValidationGroup="" style="margin-top: 5px; margin-bottom: 5px" ></asp:TextBox>
+                                                                                <asp:TextBox ID="txtImportPrice_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblProductStatus_" runat="server" Text="Status: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblUnitPrice_" runat="server" Text="Unit Price: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <%--<asp:DropDownList ID="DropDown_" runat="server" CssClass="dropdown-submenu"></asp:DropDownList>--%>
-                                                                                <%--<asp:TextBox ID="txtProductStatus_" runat="server" TextMode="MultiLine" CssClass="form form-control"></asp:TextBox>--%>
-                                                                                <asp:RadioButtonList ID="rbtStatus_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
+                                                                                <asp:TextBox ID="txtUnitPrice_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblProductQuantity_" runat="server" Text="Quantity: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox ID="txtProductQuantity_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidationGroup=""></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblProductStatus_" runat="server" Text="Status: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:RadioButtonList ID="rbtStatus_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters pr-dialog-textbox">
                                                                                     <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
                                                                                     <asp:ListItem Text="Not Available" Value="Not Available"></asp:ListItem>
                                                                                 </asp:RadioButtonList>

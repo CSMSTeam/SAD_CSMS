@@ -26,6 +26,7 @@
     <link href="../styles/introjs.css" rel="stylesheet" />
     <link href="../styles/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
     <link href="../styles/animate.css" rel="stylesheet" />
+    <link href="../styles/private.css" rel="stylesheet" />
     <script src="../Resource/ajaxjs/jquery.min.js"></script>
     <script src="../Resource/js/bootstrap.min.js"></script>
 
@@ -47,17 +48,24 @@
                         <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">CocShop</span><span style="display: none" class="logo-text-icon">µ</span></a>
                     </div>
                     <div class="topbar-main">
-                        <a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
-                        <div class="news-update-box hidden-xs">
-                            <span class="text-uppercase mrm pull-left text-white">News:</span>
-                            <ul id="news-update" class="ticker list-unstyled">
-                                <li>Welcome to CocShop Management</li>
-                                <li>CocShop Management</li>
-                            </ul>
-                        </div>
+                        <a id="menu-toggle" href="#" class="hidden-xs" style="padding: 13px 20px 10px"><i class="fa fa-bars"></i></a>
+                        <label class="pr-welcome">
+                            Welcome to CocShop Management
+                        </label>
                         <ul class="nav navbar navbar-top-links navbar-right mbn">
-                            <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle">
-                                <img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle" />&nbsp;<span class="hidden-xs">Robert John</span>&nbsp;<span class="caret"></span></a>
+                            <li class="dropdown topbar-user">
+                                <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                                    <img src="../Resource/image/me.jpg" alt="" class="img-responsive img-circle" />
+                                    <span class="hidden-xs">
+                                        <asp:Label Style="vertical-align: middle" ID="lblUsername" runat="server" Text=""></asp:Label>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a style="padding: 0px" href="#">
+                                    <asp:Button runat="server" CssClass="pr-btn-logout" Text="Log Out" ID="btnLogout" OnClick="btnLogout_Click" />
+                                    <i style="margin: 0 0 0 -10px; vertical-align: middle;" class="fa fa-sign-out"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -85,7 +93,7 @@
                 </nav>
                 <div id="page-wrapper">
                     <!--BEGIN TITLE & BREADCRUMB PAGE-->
-                    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                    <div id="title-breadcrumb-option-demo" class="pr-title-content page-title-breadcrumb">
                         <div class="page-header pull-left">
                             <div class="page-title">
                                 Account
@@ -130,50 +138,50 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpID" runat="server" Text="ID: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpID" runat="server" Text="ID: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpID" runat="server" ReadOnly="true" CssClass="form form-control" ValidateRequestMode="Enabled" Style="margin-top: 5px; margin-bottom: 5px"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpName" runat="server" Text="Name: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpName" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" Style="margin-top: 5px; margin-bottom: 5px"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpID" runat="server" ReadOnly="true" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpUsername" runat="server" Text="Username: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpName" runat="server" Text="Name: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpUsername" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpPassword" runat="server" Text="Password: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpPassword" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpName" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpRole" runat="server" Text="Employee's Role: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpUsername" runat="server" Text="Username: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:DropDownList ID="DropDownList1" runat="server" style="margin-top: 5px; margin-bottom: 5px"></asp:DropDownList>
+                                                                                <asp:TextBox ID="txtEmpUsername" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpSex" runat="server" Text="Sex: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpPassword" runat="server" Text="Password: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:RadioButtonList ID="rbtSex" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
+                                                                                <asp:TextBox ID="txtEmpPassword" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpRole" runat="server" Text="Employee's Role: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="pr-dialog-textbox"></asp:DropDownList>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpSex" runat="server" Text="Sex: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:RadioButtonList ID="rbtSex" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="pr-dialog-textbox radio-filters">
                                                                                     <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
                                                                                     <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
                                                                                 </asp:RadioButtonList>
@@ -181,10 +189,10 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpBirthdate" runat="server" Text="Birthday: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpBirthdate" runat="server" Text="Birthday: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID='txtEmpBirthdate' runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID='txtEmpBirthdate' runat="server" CssClass="form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                                 <script type="text/javascript">
                                                                                     $(function () {
                                                                                         $('#txtEmpBirthdate').datetimepicker();
@@ -194,10 +202,10 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpHiredate" runat="server" Text="Hire date: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpHiredate" runat="server" Text="Hire date: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpHiredate" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpHiredate" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                                 <script type="text/javascript">
                                                                                     $(function () {
                                                                                         $('#txtEmpHiredate').datetimepicker();
@@ -207,66 +215,66 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpAddress" runat="server" Text="Address: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpAddress" runat="server" Text="Address: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpAddress" TextMode="MultiLine" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpPhone" runat="server" Text="Phone: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpPhone" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpAddress" TextMode="MultiLine" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpCity" runat="server" Text="City: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpPhone" runat="server" Text="Phone: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpCity" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpCountry" runat="server" Text="Country: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpCountry" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpPhone" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpSalary" runat="server" Text="Salary: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpCity" runat="server" Text="City: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpSalary" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpHourWork" runat="server" Text="Hour Work: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpHourWork" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpCity" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpMgrID" runat="server" Text="Manager's ID: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpCountry" runat="server" Text="Country: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpMgrID" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpCountry" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpStatus" runat="server" Text="Status: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpSalary" runat="server" Text="Salary: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:RadioButtonList ID="rbtStatus" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
+                                                                                <asp:TextBox ID="txtEmpSalary" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpHourWork" runat="server" Text="Hour Work: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox ID="txtEmpHourWork" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpMgrID" runat="server" Text="Manager's ID: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox ID="txtEmpMgrID" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpStatus" runat="server" Text="Status: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:RadioButtonList ID="rbtStatus" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters pr-dialog-textbox">
                                                                                     <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
                                                                                     <asp:ListItem Text="Not Available" Value="Not Available"></asp:ListItem>
                                                                                 </asp:RadioButtonList>
@@ -303,42 +311,42 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpName_" runat="server" Text="Name: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpName_" runat="server" Text="Name: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpName_" runat="server" CssClass="form form-control" ValidateRequestMode="Enabled" Style="margin-top: 5px; margin-bottom: 5px"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpUsername_" runat="server" Text="Username: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpUsername_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpName_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpPassword_" runat="server" Text="Password: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpUsername_" runat="server" Text="Username: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpPassword_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpRole_" runat="server" Text="Employee's Role: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:DropDownList ID="DropDownList2" runat="server" style="margin-top: 5px; margin-bottom: 5px"></asp:DropDownList>
+                                                                                <asp:TextBox ID="txtEmpUsername_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpSex_" runat="server" Text="Sex: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpPassword_" runat="server" Text="Password: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:RadioButtonList ID="rbtSex_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
+                                                                                <asp:TextBox ID="txtEmpPassword_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpRole_" runat="server" Text="Employee's Role: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:DropDownList ID="DropDownList2" runat="server" CssClass="pr-dialog-textbox"></asp:DropDownList>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpSex_" runat="server" Text="Sex: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:RadioButtonList ID="rbtSex_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters pr-dialog-textbox">
                                                                                     <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
                                                                                     <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
                                                                                 </asp:RadioButtonList>
@@ -346,10 +354,10 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpBirthdate_" runat="server" Text="Birthday: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpBirthdate_" runat="server" Text="Birthday: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpBirthdate_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpBirthdate_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                                 <script type="text/javascript">
                                                                                     $(function () {
                                                                                         $('#txtEmpBirthdate_').datetimepicker();
@@ -359,10 +367,10 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpHiredate_" runat="server" Text="Hire date: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpHiredate_" runat="server" Text="Hire date: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpHiredate_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpHiredate_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                                 <script type="text/javascript">
                                                                                     $(function () {
                                                                                         $('#txtEmpHiredate_').datetimepicker();
@@ -372,66 +380,66 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpAddress_" runat="server" Text="Address: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpAddress_" runat="server" Text="Address: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpAddress_" TextMode="MultiLine" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpPhone_" runat="server" Text="Phone: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpPhone_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpAddress_" TextMode="MultiLine" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpCity_" runat="server" Text="City: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpPhone_" runat="server" Text="Phone: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpCity_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpCountry_" runat="server" Text="Country: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpCountry_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpPhone_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpSalary_" runat="server" Text="Salary: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpCity_" runat="server" Text="City: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpSalary_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <asp:Label ID="lblEmpHourWork_" runat="server" Text="Hour Work: " CssClass="form-control-static"></asp:Label>
-                                                                            </td>
-                                                                            <td>
-                                                                                <asp:TextBox ID="txtEmpHourWork_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpCity_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpMgrID_" runat="server" Text="Manager's ID: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpCountry_" runat="server" Text="Country: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtEmpMgrID_" runat="server" Style="margin-top: 5px; margin-bottom: 5px" CssClass="form form-control" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtEmpCountry_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="lblEmpStatus_" runat="server" Text="Status: " CssClass="form-control-static"></asp:Label>
+                                                                                <asp:Label ID="lblEmpSalary_" runat="server" Text="Salary: " CssClass="form-control-static pr-dialog-label"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:RadioButtonList ID="rbtStatus_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters">
+                                                                                <asp:TextBox ID="txtEmpSalary_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpHourWork_" runat="server" Text="Hour Work: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox ID="txtEmpHourWork_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpMgrID_" runat="server" Text="Manager's ID: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:TextBox ID="txtEmpMgrID_" runat="server" CssClass="form form-control pr-dialog-textbox" ValidateRequestMode="Enabled"></asp:TextBox>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="lblEmpStatus_" runat="server" Text="Status: " CssClass="form-control-static pr-dialog-label"></asp:Label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <asp:RadioButtonList ID="rbtStatus_" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="radio-filters pr-dialog-textbox">
                                                                                     <asp:ListItem Text="Available" Value="Available"></asp:ListItem>
                                                                                     <asp:ListItem Text="Not Available" Value="Not Available"></asp:ListItem>
                                                                                 </asp:RadioButtonList>

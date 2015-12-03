@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Order</title>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="shortcut icon" href="images/icons/favicon.ico"/>
-    <link rel="apple-touch-icon" href="images/icons/favicon.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon-72x72.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/icons/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/icons/favicon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png" />
     <!--Loading bootstrap css-->
     <link href="../styles/all.css" rel="stylesheet" />
     <link href="../styles/main.css" rel="stylesheet" />
@@ -26,12 +26,13 @@
     <link href="../styles/introjs.css" rel="stylesheet" />
     <link href="../styles/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
     <link href="../styles/animate.css" rel="stylesheet" />
+    <link href="../styles/private.css" rel="stylesheet" />
     <script src="../Resource/ajaxjs/jquery.min.js"></script>
     <script src="../Resource/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <!--BEGIN BACK TO TOP-->
             <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
@@ -39,50 +40,61 @@
             <!--BEGIN TOPBAR-->
             <div id="header-topbar-option-demo" class="page-header-topbar">
                 <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
-                <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">CocShop</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
-                <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
-                <div class="news-update-box hidden-xs"><span class="text-uppercase mrm pull-left text-white">News:</span>
-                        <ul id="news-update" class="ticker list-unstyled">
-                            <li>Welcome to CocShop Management</li>
-                            <li>CocShop Management</li>
+                    <div class="navbar-header">
+                        <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">CocShop</span><span style="display: none" class="logo-text-icon">µ</span></a>
+                    </div>
+                    <div class="topbar-main">
+                        <a id="menu-toggle" href="#" class="hidden-xs" style="padding: 13px 20px 10px"><i class="fa fa-bars"></i></a>
+                        <label class="pr-welcome">
+                            Welcome to CocShop Management
+                        </label>
+                        <ul class="nav navbar navbar-top-links navbar-right mbn">
+                            <li class="dropdown topbar-user">
+                                <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                                    <img src="../Resource/image/me.jpg" alt="" class="img-responsive img-circle" />
+                                    <span class="hidden-xs">
+                                        <asp:Label Style="vertical-align: middle" ID="lblUsername" runat="server" Text=""></asp:Label>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a style="padding: 0px" href="#">
+                                    <asp:Button ID="btnLogout" runat="server" CssClass="pr-btn-logout" Text="Log Out" OnClick="btnLogout_Click" />
+                                    <i style="margin: 0 0 0 -10px; vertical-align: middle;" class="fa fa-sign-out"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
-                    <ul class="nav navbar navbar-top-links navbar-right mbn">                   
-                        <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs"><asp:Label ID="lblUsername" runat="server" Text=""></asp:Label></span>&nbsp;<span class="caret"></span></a>                       
-                        </li> 
-                        <li><a href="Login.aspx"><i class="fa fa-key"></i>Log Out</a></li>                    
-                    </ul>
-                </div>
-            </nav>
+                </nav>
             </div>
             <!--END TOPBAR-->
             <div id="wrapper">
                 <!--BEGIN SIDEBAR MENU-->
                 <nav id="sidebar" role="navigation" data-step="2" data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"
                     data-position="right" class="navbar-default navbar-static-side">
-                <div class="sidebar-collapse menu-scroll">
-                    <ul id="side-menu" class="nav">
-                    
-                         <div class="clearfix"></div>                                       
-                        </li>
+                    <div class="sidebar-collapse menu-scroll">
+                        <ul id="side-menu" class="nav">
+
+                            <div class="clearfix"></div>
+                            </li>
                         <li><a href="SalePersonViewOder.aspx"><i class="fa fa-th-list fa-fw">
                             <div class="icon-bg bg-blue"></div>
-                        </i><span class="menu-title">Order</span></a>                          
-                        </li>                       
-                        <li class="active"><a href="SalePersonViewReport.aspx"><i class="fa fa-bar-chart-o fa-fw">
-                            <div class="icon-bg bg-orange"></div>
-                        </i><span class="menu-title">Report</span></a>                       
-                    </ul>
-                </div>
-            </nav>            
+                        </i><span class="menu-title">Order</span></a>
+                        </li>
+                            <li class="active"><a href="SalePersonViewReport.aspx"><i class="fa fa-bar-chart-o fa-fw">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Report</span></a>
+                        </ul>
+                    </div>
+                </nav>
                 <div id="page-wrapper">
                     <!--BEGIN TITLE & BREADCRUMB PAGE-->
-                    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                    <div id="title-breadcrumb-option-demo" class="pr-title-content page-title-breadcrumb">
                         <div class="page-header pull-left">
                             <div class="page-title">
-                                Order</div>
+                                Order
+                            </div>
                         </div>
                         <ol class="breadcrumb page-breadcrumb pull-right">
                             <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
@@ -98,89 +110,93 @@
                         <div id="tab-general">
                             <div class="row mbl">
                                 <div class="col-lg-12">
-                                
-                                                <div class="col-md-12">
-                                                    <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
-                                                    </div>
-                                                </div>
+
+                                    <div class="col-md-12">
+                                        <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-lg-12">
-                                <div class="row">
-                        <!-- Update/Delete Modal Dialog -->
-                         <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
-                                    <ContentTemplate>
-                                            <div class="modal-body">
-                                                <!--Table Order Detail -->
-                                                <div class="col-lg-12">
-                                                    <div class="panel panel-yellow">
-                                                        <div class="panel-heading">Order <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div>
-                                                        <div class="panel-body">                                    
-                                                            <table class="table table-hover">                                       
-                                                                <asp:GridView ID="grvOrderDetail" runat="server" class="table table-bordered"
-                                                                AutoGenerateColumns="false" AllowPaging="true" PageSize="20">
-                                                                    <Columns>
-                                                                        <asp:BoundField DataField = "orderid" HeaderText = "Order ID" HtmlEncode = "true" />
-                                                                        <asp:BoundField DataField = "productid" HeaderText = "Product ID" HtmlEncode = "true" />
-                                                                        <asp:BoundField DataField = "productname" HeaderText = "Product Name" HtmlEncode = "true"/>
-                                                                        <asp:BoundField DataField = "quantity" HeaderText = "Quantity" HtmlEncode = "true"/>
-                                                                        <asp:BoundField DataField = "unitprice" HeaderText = "Price" HtmlEncode = "true"/>
-                                                                    </Columns>
-                                                                </asp:GridView>
-                                                                <strong><asp:Label ID="lblTotalPrice" runat="server" Text=""></asp:Label></strong>
-                                                            </table>                                    
+                                    <div class="row">
+                                        <!-- Update/Delete Modal Dialog -->
+                                        <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                                                    <ContentTemplate>
+                                                        <div class="modal-body">
+                                                            <!--Table Order Detail -->
+                                                            <div class="col-lg-12">
+                                                                <div class="panel panel-yellow">
+                                                                    <div class="panel-heading">
+                                                                        Order
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                    </div>
+                                                                    <div class="panel-body">
+                                                                        <table class="table table-hover">
+                                                                            <asp:GridView ID="grvOrderDetail" runat="server" class="table table-bordered"
+                                                                                AutoGenerateColumns="false" AllowPaging="true" PageSize="20">
+                                                                                <Columns>
+                                                                                    <asp:BoundField DataField="orderid" HeaderText="Order ID" HtmlEncode="true" />
+                                                                                    <asp:BoundField DataField="productid" HeaderText="Product ID" HtmlEncode="true" />
+                                                                                    <asp:BoundField DataField="productname" HeaderText="Product Name" HtmlEncode="true" />
+                                                                                    <asp:BoundField DataField="quantity" HeaderText="Quantity" HtmlEncode="true" />
+                                                                                    <asp:BoundField DataField="unitprice" HeaderText="Price" HtmlEncode="true" />
+                                                                                </Columns>
+                                                                            </asp:GridView>
+                                                                            <strong>
+                                                                                <asp:Label ID="lblTotalPrice" runat="server" Text=""></asp:Label></strong>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--End Table Order Detail -->
                                                         </div>
-                                                    </div>                             
-                                                </div>
-                                                <!--End Table Order Detail -->
-                                            </div>
-                                            <div class="modal-footer">                                                
-                                                <asp:Button ID="btnClose" runat="server" Text="Close" class="btn btn-info" data-dismiss="modal" aria-hidden="true" />                                                
+                                                        <div class="modal-footer">
+                                                            <asp:Button ID="btnClose" runat="server" Text="Close" class="btn btn-info" data-dismiss="modal" aria-hidden="true" />
+                                                        </div>
+                                                        </div>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
                                             </div>
                                         </div>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </div>
-                        </div>                           
-                        <!-- End model -->
-                        <!--Table Order Pending -->
-                        <div class="col-lg-12">
-                            <div class="panel panel-yellow">
-                                <div class="panel-heading">Report</div>
-                                <div class="panel-body">                                    
-                                    <table class="table table-hover">                                       
-                                        <asp:GridView ID="grvOrderReport" runat="server" class="table table-bordered"
-                                        AutoGenerateColumns="false" AllowPaging="true" PageSize="20" OnSelectedIndexChanged="grvOrderReport_SelectedIndexChanged">
-                                            <Columns>
-                                                <asp:BoundField DataField = "orderid" HeaderText = "ID" HtmlEncode = "true" />
-                                                <asp:BoundField DataField = "orderdate" HeaderText = "Time" HtmlEncode = "true" />
-                                                <asp:BoundField DataField = "orderadress" HeaderText = "Address" HtmlEncode = "true"/>
-                                                <asp:BoundField DataField = "cusphone" HeaderText = "Phone" HtmlEncode = "true"/>
-                                                <asp:BoundField DataField = "total" HeaderText = "Status" HtmlEncode = "true"/>
-                                                <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" ControlStyle-CssClass="btn-primary"/>
-                                            </Columns>
-                                        </asp:GridView>
-                                        <asp:Label ID="lblDayTotal" runat="server" Text="" CssClass="right"></asp:Label>
-                                    </table>                                    
+                                        <!-- End model -->
+                                        <!--Table Order Pending -->
+                                        <div class="col-lg-12">
+                                            <div class="panel panel-yellow">
+                                                <div class="panel-heading">Report</div>
+                                                <div class="panel-body">
+                                                    <table class="table table-hover">
+                                                        <asp:GridView ID="grvOrderReport" runat="server" class="table table-bordered"
+                                                            AutoGenerateColumns="false" AllowPaging="true" PageSize="20" OnSelectedIndexChanged="grvOrderReport_SelectedIndexChanged">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="orderid" HeaderText="ID" HtmlEncode="true" />
+                                                                <asp:BoundField DataField="orderdate" HeaderText="Time" HtmlEncode="true" />
+                                                                <asp:BoundField DataField="orderadress" HeaderText="Address" HtmlEncode="true" />
+                                                                <asp:BoundField DataField="cusphone" HeaderText="Phone" HtmlEncode="true" />
+                                                                <asp:BoundField DataField="total" HeaderText="Status" HtmlEncode="true" />
+                                                                <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Select" ControlStyle-CssClass="btn-primary" />
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <asp:Label ID="lblDayTotal" runat="server" Text="" CssClass="right"></asp:Label>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Table Order Pending -->
+                                    </div>
                                 </div>
-                            </div>                             
-                        </div>
-                        <!--End Table Order Pending -->                
-                        </div>
-                    </div>
-						    </div>                            
                             </div>
                         </div>
                     </div>
-                    <!--END CONTENT-->
-                    <!--BEGIN FOOTER-->
-                    <div id="footer">
-                    </div>
-                    <!--END FOOTER-->
                 </div>
-                <!--END PAGE WRAPPER-->
-            </div>        
+                <!--END CONTENT-->
+                <!--BEGIN FOOTER-->
+                <div id="footer">
+                </div>
+                <!--END FOOTER-->
+            </div>
+            <!--END PAGE WRAPPER-->
+        </div>
         <script src="script/jquery-1.10.2.min.js"></script>
         <script src="script/jquery-migrate-1.2.1.min.js"></script>
         <script src="script/jquery-ui.js"></script>
@@ -233,7 +249,7 @@
             ga('send', 'pageview');
 
 
-    </script>
+        </script>
     </form>
 </body>
 </html>

@@ -15,6 +15,7 @@ namespace CSMSWebSiteBootStrap.View
             if (role != null && (role.Equals("Admin") || role.Equals("Manager")))
             {
                 LoadCategories();
+                lblUsername.Text = (string)Session["USERNAME"];
             }
             else
             {
@@ -116,6 +117,12 @@ namespace CSMSWebSiteBootStrap.View
             sb.Append(@"</script>");
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "DeleteHideModalScript", sb.ToString(), false);
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }

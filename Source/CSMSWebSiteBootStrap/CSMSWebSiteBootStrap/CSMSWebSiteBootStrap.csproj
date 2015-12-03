@@ -297,6 +297,7 @@
     <Content Include="styles\polaris\polaris%402x.png" />
     <Content Include="styles\polaris\polaris.css" />
     <Content Include="styles\polaris\polaris.png" />
+    <Content Include="styles\private.css" />
     <Content Include="styles\square\aero%402x.png" />
     <Content Include="styles\square\aero.css" />
     <Content Include="styles\square\aero.png" />
@@ -354,6 +355,7 @@
     </Compile>
     <Compile Include="View\SalePersonViewReport.aspx.cs">
       <DependentUpon>SalePersonViewReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\SalePersonViewReport.aspx.designer.cs">
       <DependentUpon>SalePersonViewReport.aspx</DependentUpon>
