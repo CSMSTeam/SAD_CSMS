@@ -19,3 +19,4 @@ C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\bin\
 C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\bin\CSMSWebservice.pdb
 C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.dll
 C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.pdb
+C:\Users\Kin\Documents\GitHub\SAD_CSMS\Source\CSMSWebservice\CSMSWebservice\obj\Debug\CSMSWebservice.csprojResolveAssemblyReference.cache

@@ -51,7 +51,8 @@
                     </div>
                     <ul class="nav navbar navbar-top-links navbar-right mbn">                   
                         <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs"><asp:Label ID="lblUsername" runat="server" Text=""></asp:Label></span>&nbsp;<span class="caret"></span></a>                       
-                        </li>                    
+                        </li> 
+                        <li><a href="Login.aspx"><i class="fa fa-key"></i>Log Out</a></li>                    
                     </ul>
                 </div>
             </nav>

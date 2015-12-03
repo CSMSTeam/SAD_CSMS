@@ -11,7 +11,15 @@ namespace CSMSWebSiteBootStrap.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                LoadCategories();            
+            string role = (string)Session["USERROLE"];
+            if (role != null && (role.Equals("Admin") || role.Equals("Manager")))
+            {
+                LoadCategories();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }           
         }
 
         public void LoadCategories()
