@@ -180,6 +180,10 @@
     <Content Include="script\jquery-migrate-1.2.1.min.js" />
     <Content Include="script\jquery-ui.js" />
     <Content Include="script\jquery.cookie.js" />
+    <Content Include="script\jquery.datetimepicker.full.js" />
+    <Content Include="script\jquery.datetimepicker.full.min.js" />
+    <Content Include="script\jquery.datetimepicker.js" />
+    <Content Include="script\jquery.datetimepicker.min.js" />
     <Content Include="script\jquery.flot.categories.js" />
     <Content Include="script\jquery.flot.fillbetween.js" />
     <Content Include="script\jquery.flot.js" />
@@ -241,6 +245,7 @@
     <Content Include="styles\introjs.css" />
     <Content Include="styles\jplist-custom.css" />
     <Content Include="styles\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="styles\jquery.datetimepicker.css" />
     <Content Include="styles\jquery.news-ticker.css" />
     <Content Include="styles\line\aero.css" />
     <Content Include="styles\line\all.css" />

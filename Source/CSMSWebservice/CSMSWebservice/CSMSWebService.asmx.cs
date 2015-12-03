@@ -108,11 +108,11 @@ namespace CSMSWebservice
             cmd.Parameters.Add(param);
 
             param = new SqlParameter("@empbrithdate", SqlDbType.DateTime);
-            param.Value = DateTime.Parse(empbrithdate).ToShortDateString();
+            param.Value = DateTime.Parse(empbrithdate).ToString();
             cmd.Parameters.Add(param);
 
             param = new SqlParameter("@emphiredate", SqlDbType.DateTime);
-            param.Value = DateTime.Parse(emphiredate).ToShortDateString();
+            param.Value = DateTime.Parse(emphiredate).ToString();
             cmd.Parameters.Add(param);
 
             param = new SqlParameter("@empaddress", SqlDbType.NVarChar);
@@ -199,11 +199,11 @@ namespace CSMSWebservice
             cmd.Parameters.Add(param);
 
             param = new SqlParameter("@empbrithdate", SqlDbType.DateTime);
-            param.Value = DateTime.Parse(empbrithdate).ToShortDateString();
+            param.Value = DateTime.Parse(empbrithdate).ToString();
             cmd.Parameters.Add(param);
 
             param = new SqlParameter("@emphiredate", SqlDbType.DateTime);
-            param.Value = DateTime.Parse(emphiredate).ToShortDateString();
+            param.Value = DateTime.Parse(emphiredate).ToString();
             cmd.Parameters.Add(param);
 
             param = new SqlParameter("@empaddress", SqlDbType.NVarChar);
