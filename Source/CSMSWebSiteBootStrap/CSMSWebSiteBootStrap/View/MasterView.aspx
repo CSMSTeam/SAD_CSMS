@@ -90,7 +90,7 @@
                             <div class="icon-bg bg-blue"></div>
                         </i><span class="menu-title">Order</span></a>                          
                         </li>                       
-                        <li><a href="AdminViewReport.aspx"><i class="fa fa-bar-chart-o fa-fw">
+                        <li><a href="ManageAcount.aspx"><i class="fa fa-bar-chart-o fa-fw">
                             <div class="icon-bg bg-orange"></div>
                         </i><span class="menu-title">Report</span></a>                       
                     </ul>
