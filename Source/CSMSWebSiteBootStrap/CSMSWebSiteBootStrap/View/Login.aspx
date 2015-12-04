@@ -10,24 +10,29 @@
     <script src="../Resource/LoginForm/login.js"></script>
 </head>
 <body>
-    <div class="login-form">    
-    <div class="head">
-			<img src="../Resource/image/me.jpg" />
-    </div>  
-    <form id="form1" runat="server">                  
-        <table style="border-collapse: separate; border-spacing: 10px 10px;">
-			<tr>
-				<td><asp:TextBox ID="txtUsername" runat="server" placeholder="USERNAME" ></asp:TextBox></td>
-			</tr>
-			<tr>
-				<td><asp:TextBox ID="txtPassword" runat="server" placeholder="PASSWORD" TextMode="Password"></asp:TextBox> </td>
-			</tr>            
-		</table>
-        <div class="p-container">		
+    <div class="login-form">
+        <div class="head">
+            <img src="../Resource/image/me.jpg" />
+        </div>
+        <form id="form1" runat="server">
+            <div>
+                <table style="border-collapse: separate; border-spacing: 10px 10px; width: 100%">
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="txtUsername" runat="server" placeholder="USERNAME" Style="width: 100%; padding-right:30.6px"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="txtPassword" runat="server" placeholder="PASSWORD" TextMode="Password" Style="width: 100%; padding-right:30.6px"></asp:TextBox>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="p-container">
                 <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
-		    <div class="clear"></div>
-		</div>
-     </form>        
-     </div>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
