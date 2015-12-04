@@ -13,12 +13,14 @@ CREATE PROCEDURE [dbo].[AdminViewReport]
 	@todate datetime,
 	@status nvarchar(15)
 AS
-	SELECT ord.orderid, ord.empid, ord.orderdate, ord.total
-	FROM [Order] ord
+	SELECT ord.orderid, emp.empname, ord.orderdate, ord.total
+	FROM [Order] ord, Employee emp
 	WHERE
 	ord.orderdate BETWEEN @fromdate AND @todate
 	AND
-	@status LIKE 'Success'
+	ord.[status] LIKE @status
+	AND
+	ord.orderid = emp.orderid
 
 GO
 
